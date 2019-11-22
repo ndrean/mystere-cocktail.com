@@ -1,17 +1,26 @@
 <p> </p>
 <div class="container">
   <div class="row">
-    <% @cocktails.each do |cocktail| %>
+    <% @cocktails.each do |uncocktail| %>
     <div class="col-4">
+      <p></p><br>
       <div class="card">
         <div class="card-body">
-          <div class="card img-fluid">
-            <%= image_tag "cocktail-102.png", alt: '#{cocktail.name}'%>
-            <div class="card-img-overlay">
-              <h5 class="card-title font-weight-bold  "><%= link_to cocktail.name, cocktail_path(cocktail) %> </h5>
-              </li>
-            </div>
-          </div>
+          <h5 class="card-title font-weight-bold  "><%= link_to uncocktail.name, cocktail_path(uncocktail) %> </h5>
+          <p class="card-text">
+            <ul class="list-group">
+              <% Dose.all.where(cocktail: uncocktail).each do |dose| %>
+                <%#= image_tag "cocktail-31.png", alt: '#{cocktail.name}'%>
+                <%# cocktail.each |dose| do %>
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                   <%= dose.ingredient.name %>
+                    <span class="badge badge-primary badge-pill"><%= dose.description %></span>
+                  </li>
+                <% end %>
+                </ul>
+            </ul>
+          </p>
         </div>
       </div>
     </div>
