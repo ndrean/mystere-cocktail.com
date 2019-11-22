@@ -6,21 +6,15 @@
   </div>
 </div>
 
-<p>Find me in app/views/cocktails/show.html.erb</p>
 
-<%#= link_to 'Back to cocktails', cocktails_path, class: "btn btn-primary" %>
-<%#= link_to 'Edit the cocktail', edit_cocktail_path(@cocktail), class: "btn btn-info"  %>
-
-
-<%#= link_to 'Edit cocktail', new_cocktail_ingredient_path(dose)  %>
 <p></p>
-<div class="row">
+<div class="row justify-content-center">
   <% @cocktail.doses.each do |dose| %>
     <div class="col-6 left">
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center"><%= dose.ingredient.name %>
-          <span><%= link_to dose_path(dose), method: :delete, data: { confirm: 'Sure?' }, class: 'text-danger' do %>
-            <i class="fa fa-trash"></i>
+          <span><%= link_to dose_path(dose), method: :delete, data: { confirm: 'Sure?' }, class: 'text-secondary' do %>
+            <i class="fa fa-backspace"></i>
           <% end %>
           </span>
         </li>
@@ -36,11 +30,13 @@
   <% end %>
 </div>
 
-<%= link_to new_cocktail_dose_path(@cocktail), class: 'btn btn-ghost mt-4' do %>
-  <i class="fa fa-plus"></i>
+<div class="row justify-content-center">
+  <%= link_to new_cocktail_dose_path(@cocktail), class: 'btn btn-ghost mt-4' do %>
+    <i class="fa fa-plus"></i>
 
-  Add an ingredient!
-<% end %>
+    Add an ingredient!
+  <% end %>
+</div>
 
 
 

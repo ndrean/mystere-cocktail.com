@@ -1,7 +1,7 @@
 <h1>Ingredients for <%= @cocktail.name %></h1>
-<p>Find me in app/views/doses/new.html.erb</p>
+<br>
 <%= link_to 'Back to cocktails', cocktails_path, class: "btn btn-primary" %>
-
+<br>
 <div class="container">
   <div class="row-col-4">
     <%= simple_form_for [@cocktail, @dose] do |f| %>
