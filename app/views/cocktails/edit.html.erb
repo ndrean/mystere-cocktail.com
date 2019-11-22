@@ -1,18 +1,4 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 justify-content text-center  ">
-      <h2><%= @cocktail.name %></h2>
-    </div>
-  </div>
-</div>
-
-<p>Find me in app/views/cocktails/show.html.erb</p>
-
-<%#= link_to 'Back to cocktails', cocktails_path, class: "btn btn-primary" %>
-<%#= link_to 'Edit the cocktail', edit_cocktail_path(@cocktail), class: "btn btn-info"  %>
-
-
-<%#= link_to 'Edit cocktail', new_cocktail_ingredient_path(dose)  %>
+<h1>Edit Cocktail</h1>
 <p></p>
 <div class="row">
   <% @cocktail.doses.each do |dose| %>
@@ -34,17 +20,26 @@
 
         </li>
       </ul>
+
     </div>
   <% end %>
+  <div class="container">
+    <div class="row col-6">
+      <%= simple_form_for[@cocktail,@cocktail.doses] do |f| %>
+        <%= f.association :ingredient, collection: @ingredients %>
+        <%= f.input :description %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+        <div class="form-inputs">
+          <%= f.input :name %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-primary" %>
+        </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to new_cocktail_dose_path(@cocktail), class: 'btn btn-ghost mt-4' do %>
-  <i class="fa fa-plus"></i>
-
-  Add an ingredient!
-<% end %>
-
-
 
 
 

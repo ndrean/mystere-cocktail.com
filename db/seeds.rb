@@ -9,7 +9,9 @@
 require 'open-uri'
 require 'json'
 
+Dose.destroy_all
 Ingredient.destroy_all
+Cocktail.destroy_all
 
 url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
 
@@ -19,6 +21,3 @@ file_list['drinks'].each do |list|
   Ingredient.create!(name: list['strIngredient1'])
   end
 
-Cocktail.create!(name: 'Marijeanne')
-Cocktail.create!(name: 'La Blanche')
-Cocktail.create!(name: 'Sex on the beach')
