@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
 
   root to: 'cocktails#index'
-  resources :cocktails, only: [:index, :show, :new, :create, :destroy] do
-    resources :doses, only: [:new, :create]
+  resources :cocktails, only: [:show, :new, :create, :destroy] do
+    resources :doses, only: [:create]
   end
 
   resources :doses, only: [:destroy]
 
 
-  # get 'cocktails', to: cocktails#index'
-  # get 'cocktails/:id', to: 'cocktails#show'
-  # get ''                 , to: 'cocktails#new'
-  # post 'cocktails', to: 'cocktails#create'
+  # get 'cocktails', to: cocktails#index' OK
+  # get 'cocktails/:id', to: 'cocktails#show' RIEN
+  # get ''                 , to: 'cocktails#new' OK
+  # post 'cocktails', to: 'cocktails#create' OK
 
   # get 'cocktails/:cocktail_id/doses/new'
   # post 'cocktails', to: 'cocktails/:cocktail_id/doses'

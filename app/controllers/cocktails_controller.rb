@@ -5,12 +5,14 @@ class CocktailsController < ApplicationController
 
   def show
     @cocktail = Cocktail.find(params[:id])
-    #@dose = Dose.new
-    #@ingredients = Ingredient.all.order(:name)
+    @dose = Dose.new
+    @ingredients = Ingredient.all.order(:name)
   end
 
   def new
     @cocktail = Cocktail.new
+    @dose = Dose.new
+    @ingredients = Ingredient.all.order(:name)
   end
 
   def create
@@ -22,6 +24,11 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def destroy
+    @cocktail = Cocktail.find(params[:id])
+    @cocktail.destroy
+    redirect_to cocktails_path
+  end
   private
 
   def cocktail_params

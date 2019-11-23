@@ -1,2 +1,9 @@
 // Specific CSS for your home-page
 
+body {
+  object-fit: cover;
+  background-image: url(gin-and-tonic.png);
+  background-size: cover;
+  max-width:100%;
+    height:auto;
+}
