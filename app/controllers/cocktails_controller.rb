@@ -7,7 +7,7 @@ class CocktailsController < ApplicationController
   # new_cocktail_path, GET cocktails/new (view: new)
   def new
     @cocktail = Cocktail.new
-    @cocktails = Cocktail.all
+    @cocktails = Cocktail.all # pour afficher la liste existante lors d'un new
   end
 
   # from new, on submit we go to create (no view)
@@ -32,7 +32,6 @@ class CocktailsController < ApplicationController
   # cocktail_path, GET cocktails/:id (view: show, _partial empty)
   def show
     logger.debug "******************* IN SHOW  ----------------------"
-    @cocktails = Cocktail.all
     @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
     @ingredients = Ingredient.all.order(:name)
