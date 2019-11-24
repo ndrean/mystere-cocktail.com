@@ -6,13 +6,13 @@
           <i class="fa fa-times-circle fa-small" data-toggle="tooltip" data-placement="top" title="Delete"></i>
         <% end %>
     </span>
+    <span class="text-white font-weight-bold"><%= @cocktail.name %></span>
 
-    <%= @cocktail.name %>
   </h2>
 </div>
 <br>
-<div class="container">
-  <div class="row d-flex justify-content-around ">
+<div class="container" >
+  <div class="row d-flex justify-content-around  ">
     <div class="col-6 ">
       <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-body">
@@ -54,12 +54,13 @@
           <div class="col-12 shadow p-3 mb-5 bg-white rounded">
             <%= simple_form_for [@cocktail, @dose] do |f| %>
               <div class="form-inputs">
+
                 <%= f.association :ingredient, collection: @ingredients, label: "Search in the list" %>
                 <%= f.input :description, label: "How much ?" %>
               </div>
 
               <div class="form-actions d-flex justifiy-content-end">
-                <span><%= f.button :submit, "Do you confirm?", class: "btn btn-light" %></span>
+                <span><%= f.button :submit,  "Do you confirm?", class: "btn btn-light" %></span>
               </div>
             <% end %>
             </div>

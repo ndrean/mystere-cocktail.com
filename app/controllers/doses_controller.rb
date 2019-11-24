@@ -2,8 +2,10 @@ class DosesController < ApplicationController
 
   # cocktail_doses_path POST  cocktails/:id/doses
   def create
+    logger.debug "**************** in CREATE DOSES ********************************"
     @cocktail = Cocktail.find(params[:cocktail_id])
     @dose = Dose.new(dose_params)
+    logger.debug "#{dose_params}"
     @dose.cocktail = @cocktail
     if @dose.save
       redirect_to cocktail_path(@cocktail)

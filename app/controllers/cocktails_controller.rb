@@ -13,14 +13,16 @@ class CocktailsController < ApplicationController
 
   # cocktail, POST cocktails/:id
   def create
-    #logger.debug "in create"
+    logger.debug "******************** IN CREATE -x-x-x-x-x-x-xx-x-x-x-x"
     @cocktail = Cocktail.new(cocktail_params)
-    #@cocktail.url = '~/code/ndrean/rails-mister-cocktail/app/assets/images/'+@cocktail.url
+    logger.debug "#{cocktail_params} ==================================="
+    #base_url = '~/code/ndrean/rails-mister-cocktail/app/assets/images/'
+    # @cocktail.url = base_url+@cocktail.url
     if @cocktail.save
       # we go to show
       redirect_to cocktail_path(@cocktail)
     else
-      render :show
+      render 'cocktails/new'
     end
   end
 
@@ -28,7 +30,7 @@ class CocktailsController < ApplicationController
 
   # cocktail_path, GET cocktails/:id (view: show, _partial empty)
   def show
-    logger.debug "in show"
+    logger.debug "******************* IN SHOW  ----------------------"
     @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
     @ingredients = Ingredient.all.order(:name)
@@ -39,23 +41,7 @@ class CocktailsController < ApplicationController
     end
   end
 
-  # from root, we can edit
-  # the view edit, same as  show, with _partial been updated)
-
-  # edit_cocktail_path, PATCH cocktails/:id
-  def edit
-    raise
-    @cocktail = Cocktail.find(cocktail_params)
-    @dose = @cocktail.doses
-    @ingredients = Ingredient.all.order(:name)
-    if @dose.save
-      redirect_to cocktail_path(@cocktail)
-    else
-      render :new
-    end
-  end
-
-
+  # cocktail DELETE cocktails/:ind
   def destroy
     @cocktail = Cocktail.find(params[:id])
     @cocktail.destroy

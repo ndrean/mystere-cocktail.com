@@ -1,3 +1,6 @@
 .backtrans {
+  background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Atlas-Cover.png');
   background-color: rgba(245, 245, 245, 0.1);
+  background-size: cover;
+  max-width: 100%;
 }
