@@ -6,7 +6,8 @@
       <p></p><br>
       <div class="card shadow-sm p-3 mb-5 bg-white rounded">
         <div class="card-body">
-          <%= image_tag "#{cocktail.url}", class: "img-cover" %>
+          <%= image_tag cocktail.picture.variant(resize: "276x300") if cocktail.picture.attached? %>
+          <!-- .img-cover supprimé -->
           <h5 class="card-title font-weight-bold shadow p-3 mb-5 bg-white rounded text-center">
             <%= link_to cocktail.name, cocktail_path(cocktail), class: "stretched-link" %>
           <!--  strechted-link : to make card clickable -->
