@@ -49,18 +49,18 @@
       <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-body">
           <div class="row justify-content-center">
-            <h4>Add an ingredient?</h4>
+            <h4>Ajouter un ingredient?</h4>
           </div>
           <div class="col-12 shadow p-3 mb-5 bg-white rounded">
             <%= simple_form_for [@cocktail, @dose] do |f| %>
               <div class="form-inputs">
 
-                <%= f.association :ingredient, collection: @ingredients, label: "Search in the list" %>
-                <%= f.input :description, label: "How much ?" %>
+                <%= f.association :ingredient, collection: @ingredients, label: "Rechercher dans la liste" %>
+                <%= f.input :description, label: "Combien?" %>
               </div>
 
               <div class="form-actions d-flex justifiy-content-end">
-                <span><%= f.button :submit,  "Do you confirm?", class: "btn btn-light" %></span>
+                <span><%= f.button :submit,  "Confirmez-vous?", class: "btn btn-light" %></span>
               </div>
             <% end %>
             </div>

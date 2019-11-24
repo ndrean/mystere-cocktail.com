@@ -8,11 +8,11 @@
             <div class="form-inputs ">
               <%= f.error_notification %>
               <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-              <%= f.input :name, label: "Please enter a name", placeholder: 'baptisez le!'%>
-              <%= f.input :url, label: "add a nice picture" %>
+              <%= f.input :name, label: "Baptisez votre cocktail!", placeholder: 'baptisez le!'%>
+              <%= f.input :url, label: "et ajouter une image" %>
             </div>
           <div class="form-actions">
-            <%= f.submit %>
+            <%= f.button :submit, "Créez le!" %>
           </div>
             <% end %>
         </div>
