@@ -1,8 +1,17 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-12 d-flex justify-content-center text-center">
-      <div class="card shadow-sm p-3 mb-5  rounded bg-secondary text-white">
+    <div class="col-2">
+      <div class="list-group">
+         <% @cocktails.each do |cocktail| %>
+         <div class="list-group-item list-group-item-dark">
+           <%= cocktail.name %>
+         </div>
+         <% end %>
+      </div>
+    </div>
+    <div class="col-10 d-flex justify-content-center text-center">
+      <div class="card shadow-sm p-3 mb-5  rounded bg-dark text-white">
         <div class="card-body">
           <%= simple_form_for(@cocktail) do |f| %>
             <div class="form-inputs ">
