@@ -5,13 +5,13 @@ class DosesController < ApplicationController
     logger.debug "**************** in CREATE DOSES ********************************"
     @cocktail = Cocktail.find(params[:cocktail_id])
     @dose = Dose.new(dose_params)
-    logger.debug "#{dose_params}"
+    # logger.debug "#{dose_params}"
     @dose.cocktail = @cocktail
-    if @dose.save
-      redirect_to cocktail_path(@cocktail)
-    else
-      render 'cocktails/show'
-    end
+    # if @dose.save
+    #   redirect_to cocktail_path(@cocktail)
+    # else
+    #   render 'cocktails/show'
+    # end
   end
 
   # dose DELETE doses/:id
