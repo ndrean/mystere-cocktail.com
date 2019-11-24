@@ -1,58 +1,30 @@
+<br>
 <div class="container">
   <div class="row">
-    <div class="col-12 justify-content text-center  ">
-      <h2><%= @cocktail.name %></h2>
-    </div>
-  </div>
-</div>
-
-
-<p></p>
-<div class="row justify-content-center">
-  <% @cocktail.doses.each do |dose| %>
-    <div class="col-6 left">
-      <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center"><%= dose.ingredient.name %>
-          <span><%= link_to dose_path(dose), method: :delete, data: { confirm: 'Sure?' }, class: 'text-secondary' do %>
-            <i class="fa fa-backspace"></i>
+    <div class="col-12 d-flex justify-content-center text-center">
+      <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+          <%= simple_form_for @cocktail do |f| %>
+            <div class="form-inputs ">
+              <%#= f.error_notification %>
+              <%#= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+              <%= f.input :name, label: "Please enter a name", placeholder: 'baptisez le!'%>
+            </div>
+            <div class="row justify-content-center align-middle">
+              <%= f.input :url, label: "add a nice picture by pasting it's URL" %>
+            </div>
+        </div>
+        <div class="form-actions">
+          <%= f.submit %>
+        </div>
           <% end %>
-          </span>
-        </li>
-      </ul>
+      </div>
     </div>
-    <div class="col-sm-1 right">
-      <ul class="list-group">
-        <li class="list-group-item ">
-          <span class ="badge badge-primary badge-pill text-center"><%= dose.description %></span>
-        </li>
-      </ul>
-    </div>
-  <% end %>
-</div>
-
-<div class="col-6">
-  <%= simple_form_for[@cocktail,@dose] do |f| %>
-    <div class="form-inputs">
-      <%= f.input :name %>
-      <%#= f.input :banner_url %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-primary" %>
-    </div>
-  <% end %>
-
-  <div class="row justify-content-center">
-    <%#= link_to new_cocktail_dose_path(@cocktail), class: 'btn btn-ghost mt-4' do %>
-      <i class="fa fa-plus"></i>
-
-      Add an ingredient!
-    <%# end %>
   </div>
 </div>
 
 
-
+<!--  class: "btn btn-sm btn-light btn-outline-secondary rounded" -->
 
 
 

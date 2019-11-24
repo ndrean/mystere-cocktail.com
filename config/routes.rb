@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
   root to: 'cocktails#index'
-  resources :cocktails, only: [:show, :new, :create, :destroy] do
+  resources :cocktails, only: [:new, :show, :create, :destroy] do
     resources :doses, only: [:create]
   end
 
   resources :doses, only: [:destroy]
-
 
   # get 'cocktails', to: cocktails#index' OK
   # get 'cocktails/:id', to: 'cocktails#show' RIEN

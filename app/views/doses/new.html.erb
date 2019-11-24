@@ -1,13 +1,13 @@
 <h1>Ingredients for <%= @cocktail.name %></h1>
 <br>
-<%= link_to 'Back to cocktails', cocktails_path, class: "btn btn-primary" %>
+<%= link_to 'Back to cocktails', root_path, class: "btn btn-primary" %>
 <br>
 <div class="container">
   <div class="row-col-4">
     <%= simple_form_for [@cocktail, @dose] do |f| %>
       <%= f.association :ingredient, collection: @ingredients %>
       <%= f.input :description %>
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
   </div>
 </div>
